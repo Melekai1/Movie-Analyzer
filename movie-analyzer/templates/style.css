@@ -12,3 +12,15 @@ th, td {
 thead {
     background-color: #f0f0f0;
 }
+
+header {
+    text-align: center;
+}
+
+.search-bar {
+    margin-left: auto;
+}
+
+section.button-section {
+    justify-content: center;
+}
