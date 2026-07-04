@@ -1,10 +1,14 @@
+body {
+    background-color:bisque;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid #ccc;
+    border: 1px solid black;
     padding: 10px;
     text-align: left;
 }
@@ -15,12 +19,41 @@ thead {
 
 header {
     text-align: center;
+    background-color: grey;
+    padding: 10px;
 }
+
+h1 {
+    color: black;
+    font-family:'Courier New', Courier, monospace
+}
+
 
 .search-bar {
     margin-left: auto;
 }
 
-section.button-section {
+.button-section {
+    display: flex;
     justify-content: center;
+    margin-top: -37px;
+    flex-wrap: wrap;
+}
+
+#button-1 {
+    height: 40px;
+    width: 120px;
+    background-color: burlywood;
+}
+
+#button-2 {
+    height: 40px;
+    width: 120px;
+    background-color: chocolate;
+}
+
+#button-3 {
+    height: 40px;
+    width: 120px;
+    background-color:darkorange
 }
