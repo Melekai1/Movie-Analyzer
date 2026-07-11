@@ -1,15 +1,15 @@
 from flask import Flask, render_template, jsonify  # type: ignore[import]
 import csv
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
-def load_movies():
+def load_movie_initial_data():
     movies = []
-    with open("movies.csv", "r") as f:
-        reader = csv.DictReader(f);
+    with open("moviesHomePage.csv", "r") as f:
+        reader = csv.DictReader(f)
         for row in reader:
             movies.append(row)
-    return movies
+        return movies
 
 @app.route("/")
 def home():
@@ -18,7 +18,7 @@ def home():
 
 @app.route("/api/movies") 
 def get_movies():
-    movies = load_movies()
+    movies = load_movie_initial_data()
     return jsonify(movies)
 
 
