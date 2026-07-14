@@ -21,6 +21,7 @@ header {
     text-align: center;
     background-color: grey;
     padding: 10px;   
+    margin: -10px;
 }
 
 h1 {
@@ -36,7 +37,7 @@ h1 {
 .button-section {
     display: flex;
     justify-content: center;
-    margin-top: -37px;
+    margin-top: -29px;
     flex-wrap: wrap;
 }
 
