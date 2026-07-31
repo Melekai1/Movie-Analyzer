@@ -1,0 +1,6 @@
+Journal - July 26th
+
+- First recorded journal entry
+- Started building the HTML web page for searching movies by distributor (e.g. Paramount Pictures, Warner Bros., etc.)
+- Have spent time trying to figure out how to display data for each movie via table.
+- Added a "Go" button that will allow the user to select which film distributor they want to see data from.
