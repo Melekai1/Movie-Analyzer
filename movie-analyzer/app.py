@@ -16,6 +16,11 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/distributor")
+def distributor():
+    return render_template("distributor.html")
+
+
 @app.route("/api/movies") 
 def get_movies():
     movies = load_movie_initial_data()
