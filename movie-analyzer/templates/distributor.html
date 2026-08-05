@@ -15,14 +15,14 @@
 
     <section class="search-section">
             <h2>Select Distributor</h2>
-            <select>
+            <select id="mySelect">
                 <option>Universal Pictures</option>
                 <option>Paramount Pictures</option>
                 <option>Walt Disney Studios Motion Pictures</option>
                 <option>Warner Bros.</option>
                 <option>Twentienth Century Fox</option>
             </select>
-            <button>Go</button>
+            <button onclick="getMovies()">Go</button>
     </section>
        
         <h1 id="distributor-name"></h1>
@@ -30,63 +30,74 @@
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th>TITLE</th>
+                    <th>DISTRIBUTOR</th>
                 </tr>
             </thead>
             <tbody>
                 <!--Domestic Gross Section-->
                 <tr>
+                    <td>Domestic Gross</td>
                     <td></td>
                 </tr>
 
                 <!--Section 1-->
                 <tr>
+                    <td>United Kingdom</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 2-->
                 <tr>
+                    <td>France</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 3-->
                 <tr>
+                    <td>Germany</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 4-->
                 <tr>
+                    <td>Spain</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 5-->
                 <tr>
+                    <td>Italy</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 6-->
                 <tr>
+                    <td>Netherlands</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 7-->
                 <tr>
+                    <td>Switzerland</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 8-->
                 <tr>
+                    <td>Belgium</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 9-->
                 <tr>
+                    <td>Australia</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 10-->
                 <tr>
+                    <td>Sweden</td>
                     <td></td>
                 </tr>
             </tbody>
@@ -96,63 +107,74 @@
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
+                    <th>TITLE</th>
+                    <th>DISTRIBUTOR</th>
                 </tr>
             </thead>
             <tbody>
                   <!--Domestic Gross Section-->
                 <tr>
+                    <td>Domestic Gross</td>
                     <td></td>
                 </tr>
 
                 <!--Section 1-->
                 <tr>
+                    <td>United Kingdom</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 2-->
                 <tr>
+                    <td>France</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 3-->
                 <tr>
+                    <td>Germany</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 4-->
                 <tr>
+                    <td>Spain</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 5-->
                 <tr>
+                    <td>Italy</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 6-->
                 <tr>
+                    <td>Netherlands</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 7-->
                 <tr>
+                    <td>Switzerland</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 8-->
                 <tr>
+                    <td>Belgium</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 9-->
                 <tr>
+                    <td>Australia</td>
                     <td></td>
                 </tr>
 
                 <!-- Section 10-->
                 <tr>
+                    <td>Sweden</td>
                     <td></td>
                 </tr>
             </tbody>
@@ -162,6 +184,24 @@
 
 
 </body>
+
+
+<script>
+    function getMovies() {
+        const selectedElement = document.getElementById("mySelect");
+        const distributorName = selectedElement.text;
+        
+        
+    }
+
+
+
+
+
+</script>
+
+
+
 
 
 </html>
