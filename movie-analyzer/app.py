@@ -38,8 +38,8 @@ def get_movies():
     return jsonify(movies)
 
 
- @app.route("/api/all_movies")
- def get_all_movies():
+@app.route("/api/all_movies")
+def get_all_movies():
     movies = load_all_movie_data()
     return jsonify(movies)
 

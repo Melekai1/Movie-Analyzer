@@ -22,153 +22,35 @@
                 <option>Warner Bros.</option>
                 <option>Twentienth Century Fox</option>
             </select>
-            <button onclick="getMovies()">Go</button>
+            <button onclick="getData();getMovies()">Go</button>
     </section>
        
-        <h1 id="distributor-name"></h1>
+       
 
-        <table>
-            <thead>
-                <tr>
-                    <th>TITLE<br><span id="title1"></span></th>
-                    <th>DISTRIBUTOR<br><span id="distributor1"></span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--Domestic Gross Section-->
-                <tr>
-                    <td>Domestic Gross<span id="domestic1"></span></td>
-                </tr>
-
-                <!--Section 1-->
-                <tr>
-                    <td>United Kingdom<span id="united-kingdom1"></span></td>
-                </tr>
-
-                <!-- Section 2-->
-                <tr>
-                    <td>France<span id="france1"></span></td>
-                </tr>
-
-                <!-- Section 3-->
-                <tr>
-                    <td>Germany<span id="germany1"></span></td>
-                </tr>
-
-                <!-- Section 4-->
-                <tr>
-                    <td>Spain<span id="spain1"></span></td>
-                </tr>
-
-                <!-- Section 5-->
-                <tr>
-                    <td>Italy<span id="italy1"></span></td>
-                </tr>
-
-                <!-- Section 6-->
-                <tr>
-                    <td>Netherlands<span id="netherlands1"></span></td>
-                </tr>
-
-                <!-- Section 7-->
-                <tr>
-                    <td>Switzerland<span id="switzerland1"></span></td>
-                </tr>
-
-                <!-- Section 8-->
-                <tr>
-                    <td>Belgium<span id="belgium1"></span></td>
-                </tr>
-
-                <!-- Section 9-->
-                <tr>
-                    <td>Australia<span id="australia1"></span></td>
-                </tr>
-
-                <!-- Section 10-->
-                <tr>
-                    <td>Sweden<span id="sweden1"></span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <br><br>
-        <table>
-            <thead>
-                <tr>
-                    <th>TITLE<br><span id="title2"></span></th>
-                    <th>DISTRIBUTOR<br><span id="distributor2"></span></th>
-                </tr>
-            </thead>
-            <tbody>
-                  <!--Domestic Gross Section-->
-                <tr>
-                    <td>Domestic Gross<span id="domestic2"></span></td>
-                </tr>
-
-                <!--Section 1-->
-                <tr>
-                    <td>United Kingdom<span id="united-kingdom2"></span></td>
-                </tr>
-
-                <!-- Section 2-->
-                <tr>
-                    <td>France<span id="france2"></span></td>
-                </tr>
-
-                <!-- Section 3-->
-                <tr>
-                    <td>Germany<span id="germany2"></span></td>
-                </tr>
-
-                <!-- Section 4-->
-                <tr>
-                    <td>Spain<span id="spain2"></span></td>
-                </tr>
-
-                <!-- Section 5-->
-                <tr>
-                    <td>Italy<span id="italy2"></span></td>
-                </tr>
-
-                <!-- Section 6-->
-                <tr>
-                    <td>Netherlands<span id="netherlands2"></span></td>
-                </tr>
-
-                <!-- Section 7-->
-                <tr>
-                    <td>Switzerland<span id="switzerland2"></span></td>
-                </tr>
-
-                <!-- Section 8-->
-                <tr>
-                    <td>Belgium<span id="belgium2"></span></td>
-                </tr>
-
-                <!-- Section 9-->
-                <tr>
-                    <td>Australia<span id="australia2"></span></td>
-                </tr>
-
-                <!-- Section 10-->
-                <tr>
-                    <td>Sweden<span id="sweden2"></span></td>
-                </tr>
-            </tbody>
-
-        </table>
-
+        
 
 
 </body>
 
 
 <script>
+    let movieList = [];
+    const getData = async () => {
+        const res = await fetch("/api/all_movies")
+        const data = await res.json();
+        movieList = data;
+    }
+
     function getMovies() {
         const selectedElement = document.getElementById("mySelect");
         const distributorName = selectedElement.value;
-        
+        let selectedList = []
+        for (let i = 0; i < movieList.length; i++) {
+            if (movieList[i].studio == distributorName) {
+                selectedList.push(movieList[i]);
+            }
+        }
+        console.log(selectedList);
     }
 
 
