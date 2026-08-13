@@ -22,8 +22,9 @@
                 <option>Warner Bros.</option>
                 <option>Twentienth Century Fox</option>
             </select>
-            <button onclick="getData();getMovies()">Go</button>
+            <button onclick="getMovies()">Go</button>
     </section>
+    <br>
        
        
 
@@ -41,6 +42,8 @@
         movieList = data;
     }
 
+    document.addEventListener("DOMContentLoaded", getData);
+
     function getMovies() {
         const selectedElement = document.getElementById("mySelect");
         const distributorName = selectedElement.value;
@@ -51,6 +54,29 @@
             }
         }
         console.log(selectedList);
+        let table = document.createElement("table");
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+        table.append(thead, tbody);
+
+        let tableRow1 = document.createElement("tr");
+        let title = document.createElement("th");
+        let distributor = document.createElement("th");
+        title.textContent = "TITLE\n" + selectedList[0]["title"];
+        distributor.textContent = "DISTRIBUTOR\n" + distributorName;
+        tableRow1.append(title, distributor);
+        thead.append(tableRow1);
+
+   
+
+        
+        
+
+      
+        document.body.append(table);
+
+
+
     }
 
 
