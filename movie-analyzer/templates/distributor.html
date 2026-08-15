@@ -59,23 +59,66 @@
         let tbody = document.createElement("tbody");
         table.append(thead, tbody);
 
-        let tableRow1 = document.createElement("tr");
+        let tableRowHeader = document.createElement("tr");
         let title = document.createElement("th");
         let distributor = document.createElement("th");
         title.textContent = "TITLE\n" + selectedList[0]["title"];
         distributor.textContent = "DISTRIBUTOR\n" + distributorName;
-        tableRow1.append(title, distributor);
-        thead.append(tableRow1);
+        tableRowHeader.append(title, distributor);
+        thead.append(tableRowHeader);
 
-   
+        let tableRowDomestic = document.createElement("tr");
+        let tableRow_UK = document.createElement("tr");
+        let tableRow_France = document.createElement("tr");
+        let tableRow_Germany = document.createElement("tr");
+        let tableRow_Spain = document.createElement("tr");
+        let tableRow_Italy = document.createElement("tr");
+        let tableRow_Netherlands = document.createElement("tr");
+        let tableRow_Switzerland = document.createElement("tr");
+        let tableRow_Belgium = document.createElement("tr");
+        let tableRow_Australia = document.createElement("tr");
+        let tableRow_Sweden = document.createElement("tr");
 
-        
-        
+        let tableDataDomestic = document.createElement("td");
+        let tableData_UK = document.createElement("td");
+        let tableData_France = document.createElement("td");
+        let tableData_Germany = document.createElement("td");
+        let tableData_Spain = document.createElement("td");
+        let tableData_Italy = document.createElement("td");
+        let tableData_Netherlands = document.createElement("td");
+        let tableData_Switzerland = document.createElement("td");
+        let tableData_Belgium = document.createElement("td");
+        let tableData_Australia = document.createElement("td");
+        let tableData_Sweden = document.createElement("td");
 
-      
+        tableDataDomestic.textContent = "Domestic      \t\t\t\t\t$" + selectedList[0]["domestic_gross"];
+        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + selectedList[0]["uk"];
+        tableData_France.textContent = "France        \t\t\t\t\t$" + selectedList[0]["france"];
+        tableData_Germany.textContent = "Germany       \t\t$" + selectedList[0]["germany"];
+        tableData_Spain.textContent = "Spain         \t\t$" + selectedList[0]["germany"];
+        tableData_Italy.textContent = "Italy         \t\t$" + selectedList[0]["italy"];
+        tableData_Netherlands.textContent = "Netherlands   \t\t$" + selectedList[0]["netherlands"];
+        tableData_Switzerland.textContent = "Switzerland   \t\t$" + selectedList[0]["switzerland"];
+        tableData_Belgium.textContent = "Belgium       \t\t$" + selectedList[0]["belgium"];
+        tableData_Australia.textContent = "Australia     \t\t$" + selectedList[0]["australia"];
+        tableData_Sweden.textContent = "Sweden        \t\t$" + selectedList[0]["sweden"];
+
+        tableRowDomestic.append(tableDataDomestic);
+        tableRow_UK.append(tableData_UK);
+        tableRow_France.append(tableData_France);
+        tableRow_Germany.append(tableData_Germany);
+        tableRow_Spain.append(tableData_Spain);
+        tableRow_Italy.append(tableData_Italy);
+        tableRow_Netherlands.append(tableData_Netherlands);
+        tableRow_Switzerland.append(tableData_Switzerland);
+        tableRow_Belgium.append(tableData_Belgium);
+        tableRow_Australia.append(tableData_Australia);
+        tableRow_Sweden.append(tableData_Sweden);
+
+        tbody.append(tableRowDomestic, tableRow_UK, tableRow_France, tableRow_Germany, tableRow_Spain, tableRow_Italy, tableRow_Netherlands, tableRow_Switzerland,
+            tableRow_Belgium, tableRow_Sweden);
+    
         document.body.append(table);
-
-
 
     }
 
