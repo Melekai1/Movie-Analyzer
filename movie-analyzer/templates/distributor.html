@@ -25,6 +25,16 @@
             <button onclick="getMovies()">Go</button>
     </section>
     <br>
+
+  <!-- <section class="movie-list">
+
+    </section>  -->
+
+
+
+
+
+</body>
        
        
 
@@ -45,16 +55,21 @@
     document.addEventListener("DOMContentLoaded", getData);
 
     function getMovies() {
-        const selectedElement = document.getElementById("mySelect");
-        const distributorName = selectedElement.value;
+        let selectedElement = document.getElementById("mySelect");
+        let distributorName = selectedElement.value;
+        let nameCheck = distributorName;
+
         let selectedList = []
         for (let i = 0; i < movieList.length; i++) {
             if (movieList[i].studio == distributorName) {
                 selectedList.push(movieList[i]);
             }
         }
-        console.log(selectedList);
+
+        for (let i = 0; i < selectedList.length; i++) {
+
         let table = document.createElement("table");
+        table.id = "table-data";
         let thead = document.createElement("thead");
         let tbody = document.createElement("tbody");
         table.append(thead, tbody);
@@ -62,7 +77,7 @@
         let tableRowHeader = document.createElement("tr");
         let title = document.createElement("th");
         let distributor = document.createElement("th");
-        title.textContent = "TITLE\n" + selectedList[0]["title"];
+        title.textContent = "TITLE\n" + selectedList[i]["title"];
         distributor.textContent = "DISTRIBUTOR\n" + distributorName;
         tableRowHeader.append(title, distributor);
         thead.append(tableRowHeader);
@@ -91,17 +106,31 @@
         let tableData_Australia = document.createElement("td");
         let tableData_Sweden = document.createElement("td");
 
-        tableDataDomestic.textContent = "Domestic      \t\t\t\t\t$" + selectedList[0]["domestic_gross"];
-        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + selectedList[0]["uk"];
-        tableData_France.textContent = "France        \t\t\t\t\t$" + selectedList[0]["france"];
-        tableData_Germany.textContent = "Germany       \t\t$" + selectedList[0]["germany"];
-        tableData_Spain.textContent = "Spain         \t\t$" + selectedList[0]["germany"];
-        tableData_Italy.textContent = "Italy         \t\t$" + selectedList[0]["italy"];
-        tableData_Netherlands.textContent = "Netherlands   \t\t$" + selectedList[0]["netherlands"];
-        tableData_Switzerland.textContent = "Switzerland   \t\t$" + selectedList[0]["switzerland"];
-        tableData_Belgium.textContent = "Belgium       \t\t$" + selectedList[0]["belgium"];
-        tableData_Australia.textContent = "Australia     \t\t$" + selectedList[0]["australia"];
-        tableData_Sweden.textContent = "Sweden        \t\t$" + selectedList[0]["sweden"];
+        tableDataDomestic.colSpan = 2;
+        tableData_UK.colSpan = 2;
+        tableData_France.colSpan = 2;
+        tableData_Germany.colSpan = 2;
+        tableData_Spain.colSpan = 2;
+        tableData_Italy.colSpan = 2;
+        tableData_Netherlands.colSpan = 2;
+        tableData_Switzerland.colSpan = 2;
+        tableData_Belgium.colSpan = 2;
+        tableData_Australia.colSpan = 2;
+        tableData_Sweden.colSpan = 2;
+
+
+        tableDataDomestic.innerHTML = "Domestic      \t\t\t\t\t\t$" + selectedList[i]["domestic_gross"];
+        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + selectedList[i]["uk"];
+        tableData_France.textContent = "France        \t\t\t\t\t\t$" + selectedList[i]["france"];
+        tableData_Germany.textContent = "Germany       \t\t\t\t\t\t$" + selectedList[i]["germany"];
+        tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + selectedList[i]["germany"];
+        tableData_Italy.textContent = "Italy         \t\t\t\t\t\t$" + selectedList[i]["italy"];
+        tableData_Netherlands.textContent = "Netherlands   \t\t\t\t\t\t$" + selectedList[i]["netherlands"];
+        tableData_Switzerland.textContent = "Switzerland   \t\t\t\t\t\t$" + selectedList[i]["switzerland"];
+        tableData_Belgium.textContent = "Belgium       \t\t\t\t\t\t$" + selectedList[i]["belgium"];
+        tableData_Australia.textContent = "Australia     \t\t\t\t\t\t$" + selectedList[i]["australia"];
+        tableData_Sweden.textContent = "Sweden        \t\t\t\t\t\t$" + selectedList[i]["sweden"];
+
 
         tableRowDomestic.append(tableDataDomestic);
         tableRow_UK.append(tableData_UK);
@@ -116,10 +145,12 @@
         tableRow_Sweden.append(tableData_Sweden);
 
         tbody.append(tableRowDomestic, tableRow_UK, tableRow_France, tableRow_Germany, tableRow_Spain, tableRow_Italy, tableRow_Netherlands, tableRow_Switzerland,
-            tableRow_Belgium, tableRow_Sweden);
-    
+            tableRow_Belgium, tableRow_Australia, tableRow_Sweden);
+
+    //    table.insertAdjacentHTML('beforeend', '<section class="movie-list"></section>');
         document.body.append(table);
 
+        }
     }
 
 

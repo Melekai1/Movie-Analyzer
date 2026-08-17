@@ -3,8 +3,11 @@ body {
 }
 
 table {
-    width: 100%;
+    width: 50%;
     border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
 }
 
 th {
@@ -14,12 +17,16 @@ th {
     white-space: pre-line;
 }
 
+
 td {
     border: 1px solid black;
     padding: 10px;
     text-align: left;
     white-space: pre-wrap;
 }
+
+
+
 
 thead {
     background-color: #f0f0f0;
