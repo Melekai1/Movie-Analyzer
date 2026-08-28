@@ -20,6 +20,8 @@
             <button id="button-1" onclick="window.location.href='/distributor'">Search By Distributor</button>
             <button id="button-2" onclick="sortByName()">Sort By Name</button>
             <button id="button-3" onclick="sortByDomesticGross()">Sort By Domestic Gross</button>
+            <button id="button-4" onclick="sortByWorldwideGross()">Sort By Worldwide Gross</button>
+            <button id="button-5" onclick="sortByForeignGross()">Sort By Foreign Gross</button>
         </section>
 
     
@@ -227,6 +229,130 @@
           for (i = 1; i < movie_List.length; i++) {
             for (j = i; j > 0; j--) {
                 if (movie_List[j]["domestic_gross"] < movie_List[j - 1]["domestic_gross"]) {
+                    [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
+                }
+            }
+        }
+
+        document.getElementById("section1-title").innerHTML = movie_List[0]["title"];
+        document.getElementById("section1-worldwide").innerHTML = movie_List[0]["worldwide_gross"];
+        document.getElementById("section1-domestic").innerHTML = movie_List[0].domestic_gross;
+        document.getElementById("section1-foreign").innerHTML = movie_List[0].foreign_gross;
+
+        document.getElementById("section2-title").innerHTML = movie_List[1]["title"];
+        document.getElementById("section2-worldwide").innerHTML = movie_List[1]["worldwide_gross"];
+        document.getElementById("section2-domestic").innerHTML = movie_List[1].domestic_gross;
+        document.getElementById("section2-foreign").innerHTML = movie_List[1].foreign_gross;
+
+        document.getElementById("section3-title").innerHTML = movie_List[2]["title"];
+        document.getElementById("section3-worldwide").innerHTML = movie_List[2]["worldwide_gross"];
+        document.getElementById("section3-domestic").innerHTML = movie_List[2].domestic_gross;
+        document.getElementById("section3-foreign").innerHTML = movie_List[2].foreign_gross;
+
+        document.getElementById("section4-title").innerHTML = movie_List[3]["title"];
+        document.getElementById("section4-worldwide").innerHTML = movie_List[3]["worldwide_gross"];
+        document.getElementById("section4-domestic").innerHTML = movie_List[3].domestic_gross;
+        document.getElementById("section4-foreign").innerHTML = movie_List[3].foreign_gross;
+
+        document.getElementById("section5-title").innerHTML = movie_List[4]["title"];
+        document.getElementById("section5-worldwide").innerHTML = movie_List[4]["worldwide_gross"];
+        document.getElementById("section5-domestic").innerHTML = movie_List[4].domestic_gross;
+        document.getElementById("section5-foreign").innerHTML = movie_List[4].foreign_gross;
+
+        document.getElementById("section6-title").innerHTML = movie_List[5]["title"];
+        document.getElementById("section6-worldwide").innerHTML = movie_List[5]["worldwide_gross"];
+        document.getElementById("section6-domestic").innerHTML = movie_List[5].domestic_gross;
+        document.getElementById("section6-foreign").innerHTML = movie_List[5].foreign_gross;
+
+        document.getElementById("section7-title").innerHTML = movie_List[6]["title"];
+        document.getElementById("section7-worldwide").innerHTML = movie_List[6]["worldwide_gross"];
+        document.getElementById("section7-domestic").innerHTML = movie_List[6].domestic_gross;
+        document.getElementById("section7-foreign").innerHTML = movie_List[6].foreign_gross;
+
+        document.getElementById("section8-title").innerHTML = movie_List[7]["title"];
+        document.getElementById("section8-worldwide").innerHTML = movie_List[7]["worldwide_gross"];
+        document.getElementById("section8-domestic").innerHTML = movie_List[7].domestic_gross;
+        document.getElementById("section8-foreign").innerHTML = movie_List[7].foreign_gross;
+
+        document.getElementById("section9-title").innerHTML = movie_List[8]["title"];
+        document.getElementById("section9-worldwide").innerHTML = movie_List[8]["worldwide_gross"];
+        document.getElementById("section9-domestic").innerHTML = movie_List[8].domestic_gross;
+        document.getElementById("section9-foreign").innerHTML = movie_List[8].foreign_gross;
+
+        document.getElementById("section10-title").innerHTML = movie_List[9]["title"];
+        document.getElementById("section10-worldwide").innerHTML = movie_List[9]["worldwide_gross"];
+        document.getElementById("section10-domestic").innerHTML = movie_List[9].domestic_gross;
+        document.getElementById("section10-foreign").innerHTML = movie_List[9].foreign_gross;
+
+    }
+
+
+    function sortByWorldwideGross() {
+          for (i = 1; i < movie_List.length; i++) {
+            for (j = i; j > 0; j--) {
+                if (movie_List[j]["worldwide_gross"] < movie_List[j - 1]["worldwide_gross"]) {
+                    [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
+                }
+            }
+        }
+
+        document.getElementById("section1-title").innerHTML = movie_List[0]["title"];
+        document.getElementById("section1-worldwide").innerHTML = movie_List[0]["worldwide_gross"];
+        document.getElementById("section1-domestic").innerHTML = movie_List[0].domestic_gross;
+        document.getElementById("section1-foreign").innerHTML = movie_List[0].foreign_gross;
+
+        document.getElementById("section2-title").innerHTML = movie_List[1]["title"];
+        document.getElementById("section2-worldwide").innerHTML = movie_List[1]["worldwide_gross"];
+        document.getElementById("section2-domestic").innerHTML = movie_List[1].domestic_gross;
+        document.getElementById("section2-foreign").innerHTML = movie_List[1].foreign_gross;
+
+        document.getElementById("section3-title").innerHTML = movie_List[2]["title"];
+        document.getElementById("section3-worldwide").innerHTML = movie_List[2]["worldwide_gross"];
+        document.getElementById("section3-domestic").innerHTML = movie_List[2].domestic_gross;
+        document.getElementById("section3-foreign").innerHTML = movie_List[2].foreign_gross;
+
+        document.getElementById("section4-title").innerHTML = movie_List[3]["title"];
+        document.getElementById("section4-worldwide").innerHTML = movie_List[3]["worldwide_gross"];
+        document.getElementById("section4-domestic").innerHTML = movie_List[3].domestic_gross;
+        document.getElementById("section4-foreign").innerHTML = movie_List[3].foreign_gross;
+
+        document.getElementById("section5-title").innerHTML = movie_List[4]["title"];
+        document.getElementById("section5-worldwide").innerHTML = movie_List[4]["worldwide_gross"];
+        document.getElementById("section5-domestic").innerHTML = movie_List[4].domestic_gross;
+        document.getElementById("section5-foreign").innerHTML = movie_List[4].foreign_gross;
+
+        document.getElementById("section6-title").innerHTML = movie_List[5]["title"];
+        document.getElementById("section6-worldwide").innerHTML = movie_List[5]["worldwide_gross"];
+        document.getElementById("section6-domestic").innerHTML = movie_List[5].domestic_gross;
+        document.getElementById("section6-foreign").innerHTML = movie_List[5].foreign_gross;
+
+        document.getElementById("section7-title").innerHTML = movie_List[6]["title"];
+        document.getElementById("section7-worldwide").innerHTML = movie_List[6]["worldwide_gross"];
+        document.getElementById("section7-domestic").innerHTML = movie_List[6].domestic_gross;
+        document.getElementById("section7-foreign").innerHTML = movie_List[6].foreign_gross;
+
+        document.getElementById("section8-title").innerHTML = movie_List[7]["title"];
+        document.getElementById("section8-worldwide").innerHTML = movie_List[7]["worldwide_gross"];
+        document.getElementById("section8-domestic").innerHTML = movie_List[7].domestic_gross;
+        document.getElementById("section8-foreign").innerHTML = movie_List[7].foreign_gross;
+
+        document.getElementById("section9-title").innerHTML = movie_List[8]["title"];
+        document.getElementById("section9-worldwide").innerHTML = movie_List[8]["worldwide_gross"];
+        document.getElementById("section9-domestic").innerHTML = movie_List[8].domestic_gross;
+        document.getElementById("section9-foreign").innerHTML = movie_List[8].foreign_gross;
+
+        document.getElementById("section10-title").innerHTML = movie_List[9]["title"];
+        document.getElementById("section10-worldwide").innerHTML = movie_List[9]["worldwide_gross"];
+        document.getElementById("section10-domestic").innerHTML = movie_List[9].domestic_gross;
+        document.getElementById("section10-foreign").innerHTML = movie_List[9].foreign_gross;
+
+    }
+
+
+    function sortByForeignGross() {
+          for (i = 1; i < movie_List.length; i++) {
+            for (j = i; j > 0; j--) {
+                if (movie_List[j]["foreign_gross"] < movie_List[j - 1]["foreign_gross"]) {
                     [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
                 }
             }

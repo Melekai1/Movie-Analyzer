@@ -36,16 +36,12 @@
 
 </body>
        
-       
-
-        
-
-
-</body>
 
 
 <script>
     let movieList = [];
+    let previousName = null;
+
     const getData = async () => {
         const res = await fetch("/api/all_movies")
         const data = await res.json();
@@ -54,12 +50,20 @@
 
     document.addEventListener("DOMContentLoaded", getData);
 
+
     function getMovies() {
         let selectedElement = document.getElementById("mySelect");
         let distributorName = selectedElement.value;
-        let nameCheck = distributorName;
-
         let selectedList = []
+
+        if (previousName === null) {
+            previousName = distributorName;
+        } else if (previousName != null && previousName === distributorName) {
+            return;
+        } 
+
+
+
         for (let i = 0; i < movieList.length; i++) {
             if (movieList[i].studio == distributorName) {
                 selectedList.push(movieList[i]);

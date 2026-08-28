@@ -65,5 +65,17 @@ h1 {
 #button-3 {
     height: 40px;
     width: 120px;
-    background-color:darkorange
+    background-color:darkorange;
+}
+
+#button-4 {
+    height: 40px;
+    width: 120px;
+    background-color:aqua;
+}
+
+#button-5 {
+    height: 40px;
+    width: 120px;
+    background-color:blueviolet;
 }
