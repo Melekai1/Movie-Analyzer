@@ -228,7 +228,7 @@
     function sortByDomesticGross() {
           for (i = 1; i < movie_List.length; i++) {
             for (j = i; j > 0; j--) {
-                if (movie_List[j]["domestic_gross"] < movie_List[j - 1]["domestic_gross"]) {
+                if (Number(movie_List[j]["domestic_gross"]) < Number(movie_List[j - 1]["domestic_gross"])) {
                     [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
                 }
             }
@@ -290,7 +290,7 @@
     function sortByWorldwideGross() {
           for (i = 1; i < movie_List.length; i++) {
             for (j = i; j > 0; j--) {
-                if (movie_List[j]["worldwide_gross"] < movie_List[j - 1]["worldwide_gross"]) {
+                if (Number(movie_List[j]["worldwide_gross"]) < Number(movie_List[j - 1]["worldwide_gross"])) {
                     [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
                 }
             }
@@ -352,7 +352,7 @@
     function sortByForeignGross() {
           for (i = 1; i < movie_List.length; i++) {
             for (j = i; j > 0; j--) {
-                if (movie_List[j]["foreign_gross"] < movie_List[j - 1]["foreign_gross"]) {
+                if (Number(movie_List[j]["foreign_gross"]) < Number(movie_List[j - 1]["foreign_gross"])) {
                     [movie_List[j], movie_List[j - 1]] = [movie_List[j - 1], movie_List[j]];
                 }
             }

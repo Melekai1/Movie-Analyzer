@@ -26,10 +26,9 @@
     </section>
     <br>
 
-  <!-- <section class="movie-list">
-
-    </section>  -->
-
+    <div id="table-container">
+        
+    </div>
 
 
 
@@ -40,8 +39,7 @@
 
 <script>
     let movieList = [];
-    let previousName = null;
-
+   
     const getData = async () => {
         const res = await fetch("/api/all_movies")
         const data = await res.json();
@@ -51,29 +49,33 @@
     document.addEventListener("DOMContentLoaded", getData);
 
 
+    let previousName = null;
+
     function getMovies() {
         let selectedElement = document.getElementById("mySelect");
         let distributorName = selectedElement.value;
-        let selectedList = []
+       
 
-        if (previousName === null) {
-            previousName = distributorName;
-        } else if (previousName != null && previousName === distributorName) {
+        if (previousName === distributorName) {
             return;
-        } 
-
-
-
-        for (let i = 0; i < movieList.length; i++) {
-            if (movieList[i].studio == distributorName) {
-                selectedList.push(movieList[i]);
-            }
         }
+        
+        previousName = distributorName;
 
-        for (let i = 0; i < selectedList.length; i++) {
+        const container = document.getElementById("table-container");
+        container.innerHTML = "";
 
+        const selectedList = movieList.filter(movie => movie.studio === distributorName);
+
+        selectedList.forEach(movie => {
+            const table = createMovieTable(movie, distributorName);
+            container.appendChild(table);
+        }) 
+    }
+
+    function createMovieTable(movie, distributorName) {
         let table = document.createElement("table");
-        table.id = "table-data";
+        table.className = "movie-table";
         let thead = document.createElement("thead");
         let tbody = document.createElement("tbody");
         table.append(thead, tbody);
@@ -81,7 +83,7 @@
         let tableRowHeader = document.createElement("tr");
         let title = document.createElement("th");
         let distributor = document.createElement("th");
-        title.textContent = "TITLE\n" + selectedList[i]["title"];
+        title.textContent = "TITLE\n" + movie["title"];
         distributor.textContent = "DISTRIBUTOR\n" + distributorName;
         tableRowHeader.append(title, distributor);
         thead.append(tableRowHeader);
@@ -123,17 +125,17 @@
         tableData_Sweden.colSpan = 2;
 
 
-        tableDataDomestic.innerHTML = "Domestic      \t\t\t\t\t\t$" + selectedList[i]["domestic_gross"];
-        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + selectedList[i]["uk"];
-        tableData_France.textContent = "France        \t\t\t\t\t\t$" + selectedList[i]["france"];
-        tableData_Germany.textContent = "Germany       \t\t\t\t\t\t$" + selectedList[i]["germany"];
-        tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + selectedList[i]["germany"];
-        tableData_Italy.textContent = "Italy         \t\t\t\t\t\t$" + selectedList[i]["italy"];
-        tableData_Netherlands.textContent = "Netherlands   \t\t\t\t\t\t$" + selectedList[i]["netherlands"];
-        tableData_Switzerland.textContent = "Switzerland   \t\t\t\t\t\t$" + selectedList[i]["switzerland"];
-        tableData_Belgium.textContent = "Belgium       \t\t\t\t\t\t$" + selectedList[i]["belgium"];
-        tableData_Australia.textContent = "Australia     \t\t\t\t\t\t$" + selectedList[i]["australia"];
-        tableData_Sweden.textContent = "Sweden        \t\t\t\t\t\t$" + selectedList[i]["sweden"];
+        tableDataDomestic.innerHTML = "Domestic      \t\t\t\t\t\t$" + movie["domestic_gross"];
+        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + movie["uk"];
+        tableData_France.textContent = "France        \t\t\t\t\t\t$" + movie["france"];
+        tableData_Germany.textContent = "Germany       \t\t\t\t\t\t$" + movie["germany"];
+        tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + movie["germany"];
+        tableData_Italy.textContent = "Italy         \t\t\t\t\t\t$" + movie["italy"];
+        tableData_Netherlands.textContent = "Netherlands   \t\t\t\t\t\t$" + movie["netherlands"];
+        tableData_Switzerland.textContent = "Switzerland   \t\t\t\t\t\t$" + movie["switzerland"];
+        tableData_Belgium.textContent = "Belgium       \t\t\t\t\t\t$" + movie["belgium"];
+        tableData_Australia.textContent = "Australia     \t\t\t\t\t\t$" + movie["australia"];
+        tableData_Sweden.textContent = "Sweden        \t\t\t\t\t\t$" + movie["sweden"];
 
 
         tableRowDomestic.append(tableDataDomestic);
@@ -151,12 +153,8 @@
         tbody.append(tableRowDomestic, tableRow_UK, tableRow_France, tableRow_Germany, tableRow_Spain, tableRow_Italy, tableRow_Netherlands, tableRow_Switzerland,
             tableRow_Belgium, tableRow_Australia, tableRow_Sweden);
 
-    //    table.insertAdjacentHTML('beforeend', '<section class="movie-list"></section>');
-        document.body.append(table);
-
-        }
+           return table;
     }
-
 
 
 
