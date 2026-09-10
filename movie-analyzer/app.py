@@ -31,6 +31,10 @@ def home():
 def distributor():
     return render_template("distributor.html")
 
+@app.route("/results")
+def results():
+    return render_template("results.html")
+
 
 @app.route("/api/movies") 
 def get_movies():

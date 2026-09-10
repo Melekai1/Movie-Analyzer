@@ -9,10 +9,11 @@
     <body>
         <header id="top-section">
             <h1 class="title">Movie Analyzer</h1> 
-            <div class="search-bar">
-            <input type="text" id="searching" placeholder="Search">
-            <button>🔍</button>
-            </div>
+            <form id="searchForm">
+            <input type="text" id="customSearchInput" placeholder="Search" required>
+            <button id="submit">🔍</button>
+            </form>
+            
         </header>
         
         <br><br>
@@ -104,11 +105,21 @@
 
 <script>
     movie_List = [];
+
+    document.getElementById("searchForm").addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const query = document.getElementById("customSearchInput").value.trim();
+        if (query) {
+            window.location.href = `results.html?q={encodeURIComponent(query)}`
+        }
+    });
+
     const getData = async () => {
         const res = await fetch("/api/movies");
         const data = await res.json();
         movie_List = data;
-        console.log(movie_List);
+        console.log(movie_List);   //Verify that movie_List contains all data
         document.getElementById("section1-title").innerHTML = movie_List[0]["title"];
         document.getElementById("section1-worldwide").innerHTML = movie_List[0]["worldwide_gross"];
         document.getElementById("section1-domestic").innerHTML = movie_List[0].domestic_gross;
@@ -409,7 +420,6 @@
         document.getElementById("section10-foreign").innerHTML = movie_List[9].foreign_gross;
 
     }
-
 
 
 

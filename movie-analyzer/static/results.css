@@ -1,0 +1,54 @@
+body {
+    background-color: bisque;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+th {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    white-space: pre-line;
+}
+
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+
+thead {
+    background-color: #f0f0f0;
+}
+
+.header button {
+    background-color: orange;
+    width: 50px;
+    height: 30px;
+
+}
+
+.header {
+    text-align: center;
+    background-color: grey;
+    padding: 10px;   
+    margin: -10px;
+}
+
+.search-section button {
+    background-color: orange;
+}
+
+span {
+    display: inline-block;
+    margin-right: 25px;
+}

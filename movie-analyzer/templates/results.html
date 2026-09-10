@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie Analyzer</title>
+        <link rel="stylesheef" href="/static/results.css">
+    </head>
+
+    <body>
+
+        <section id="header">
+            <h1>Movie Analyzer</h1>
+            <button onclick= "window.location.href='/'">Back To Home</button>
+        </section>
+
+
+        <section id="searchResults">
+            <h2>Search Results for: <span id="searchTerm"></span></h2> 
+
+        </section>
+
+
+
+    </body>
+
+    <script>
+        movie_List = [];
+        
+        const getData = async () => {
+        const res = await fetch("/api/movies");
+        const data = await res.json();
+        movie_List = data;
+        console.log(movie_List);   //Verify that movie_List contains all data
+        document.getElementById("section1-title").innerHTML = movie_List[0]["title"];
+        document.getElementById("section1-worldwide").innerHTML = movie_List[0]["worldwide_gross"];
+        document.getElementById("section1-domestic").innerHTML = movie_List[0].domestic_gross;
+        document.getElementById("section1-foreign").innerHTML = movie_List[0].foreign_gross;
+
+        document.getElementById("section2-title").innerHTML = movie_List[1]["title"];
+        document.getElementById("section2-worldwide").innerHTML = movie_List[1]["worldwide_gross"];
+        document.getElementById("section2-domestic").innerHTML = movie_List[1].domestic_gross;
+        document.getElementById("section2-foreign").innerHTML = movie_List[1].foreign_gross;
+
+        document.getElementById("section3-title").innerHTML = movie_List[2]["title"];
+        document.getElementById("section3-worldwide").innerHTML = movie_List[2]["worldwide_gross"];
+        document.getElementById("section3-domestic").innerHTML = movie_List[2].domestic_gross;
+        document.getElementById("section3-foreign").innerHTML = movie_List[2].foreign_gross;
+
+        document.getElementById("section4-title").innerHTML = movie_List[3]["title"];
+        document.getElementById("section4-worldwide").innerHTML = movie_List[3]["worldwide_gross"];
+        document.getElementById("section4-domestic").innerHTML = movie_List[3].domestic_gross;
+        document.getElementById("section4-foreign").innerHTML = movie_List[3].foreign_gross;
+
+        document.getElementById("section5-title").innerHTML = movie_List[4]["title"];
+        document.getElementById("section5-worldwide").innerHTML = movie_List[4]["worldwide_gross"];
+        document.getElementById("section5-domestic").innerHTML = movie_List[4].domestic_gross;
+        document.getElementById("section5-foreign").innerHTML = movie_List[4].foreign_gross;
+
+        document.getElementById("section6-title").innerHTML = movie_List[5]["title"];
+        document.getElementById("section6-worldwide").innerHTML = movie_List[5]["worldwide_gross"];
+        document.getElementById("section6-domestic").innerHTML = movie_List[5].domestic_gross;
+        document.getElementById("section6-foreign").innerHTML = movie_List[5].foreign_gross;
+
+        document.getElementById("section7-title").innerHTML = movie_List[6]["title"];
+        document.getElementById("section7-worldwide").innerHTML = movie_List[6]["worldwide_gross"];
+        document.getElementById("section7-domestic").innerHTML = movie_List[6].domestic_gross;
+        document.getElementById("section7-foreign").innerHTML = movie_List[6].foreign_gross;
+
+        document.getElementById("section8-title").innerHTML = movie_List[7]["title"];
+        document.getElementById("section8-worldwide").innerHTML = movie_List[7]["worldwide_gross"];
+        document.getElementById("section8-domestic").innerHTML = movie_List[7].domestic_gross;
+        document.getElementById("section8-foreign").innerHTML = movie_List[7].foreign_gross;
+
+        document.getElementById("section9-title").innerHTML = movie_List[8]["title"];
+        document.getElementById("section9-worldwide").innerHTML = movie_List[8]["worldwide_gross"];
+        document.getElementById("section9-domestic").innerHTML = movie_List[8].domestic_gross;
+        document.getElementById("section9-foreign").innerHTML = movie_List[8].foreign_gross;
+
+        document.getElementById("section10-title").innerHTML = movie_List[9]["title"];
+        document.getElementById("section10-worldwide").innerHTML = movie_List[9]["worldwide_gross"];
+        document.getElementById("section10-domestic").innerHTML = movie_List[9].domestic_gross;
+        document.getElementById("section10-foreign").innerHTML = movie_List[9].foreign_gross;
+
+    }
+
+    document.addEventListener("DOMContentLoaded", getData);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+
+    const searchTermSpan = document.getElementById("searchTerm");
+    
+    if (query) {
+        searchTermSpan.textContent = query;
+
+        const matches = movie_List.filter(movie => 
+            movie.title.toLowerCase().includes(query.toLowerCase())
+        );
+
+    if (matches.length > 0) {
+        //A table gets displayed
+    } else {
+        //"No results found"
+    }
+
+    }
+
+
+
+
+
+    </script>
+
+
+
+
+</html>
