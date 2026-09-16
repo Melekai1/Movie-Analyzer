@@ -10,15 +10,20 @@
 
         <section id="header">
             <h1>Movie Analyzer</h1>
+            <form id="searchForm">
+            <input type="text" id="customSearchInput" placeholder="Search" required>
+            <button id="submit">🔍</button>
+            </form>
             <button onclick= "window.location.href='/'">Back To Home</button>
         </section>
 
 
         <section id="searchResults">
             <h2>Search Results for: <span id="searchTerm"></span></h2> 
-
+            <table class="movie-data"></table>
         </section>
 
+        <p id="no-data"></p>
 
 
     </body>
@@ -27,80 +32,113 @@
         movie_List = [];
         
         const getData = async () => {
-        const res = await fetch("/api/movies");
-        const data = await res.json();
-        movie_List = data;
-        console.log(movie_List);   //Verify that movie_List contains all data
-        document.getElementById("section1-title").innerHTML = movie_List[0]["title"];
-        document.getElementById("section1-worldwide").innerHTML = movie_List[0]["worldwide_gross"];
-        document.getElementById("section1-domestic").innerHTML = movie_List[0].domestic_gross;
-        document.getElementById("section1-foreign").innerHTML = movie_List[0].foreign_gross;
-
-        document.getElementById("section2-title").innerHTML = movie_List[1]["title"];
-        document.getElementById("section2-worldwide").innerHTML = movie_List[1]["worldwide_gross"];
-        document.getElementById("section2-domestic").innerHTML = movie_List[1].domestic_gross;
-        document.getElementById("section2-foreign").innerHTML = movie_List[1].foreign_gross;
-
-        document.getElementById("section3-title").innerHTML = movie_List[2]["title"];
-        document.getElementById("section3-worldwide").innerHTML = movie_List[2]["worldwide_gross"];
-        document.getElementById("section3-domestic").innerHTML = movie_List[2].domestic_gross;
-        document.getElementById("section3-foreign").innerHTML = movie_List[2].foreign_gross;
-
-        document.getElementById("section4-title").innerHTML = movie_List[3]["title"];
-        document.getElementById("section4-worldwide").innerHTML = movie_List[3]["worldwide_gross"];
-        document.getElementById("section4-domestic").innerHTML = movie_List[3].domestic_gross;
-        document.getElementById("section4-foreign").innerHTML = movie_List[3].foreign_gross;
-
-        document.getElementById("section5-title").innerHTML = movie_List[4]["title"];
-        document.getElementById("section5-worldwide").innerHTML = movie_List[4]["worldwide_gross"];
-        document.getElementById("section5-domestic").innerHTML = movie_List[4].domestic_gross;
-        document.getElementById("section5-foreign").innerHTML = movie_List[4].foreign_gross;
-
-        document.getElementById("section6-title").innerHTML = movie_List[5]["title"];
-        document.getElementById("section6-worldwide").innerHTML = movie_List[5]["worldwide_gross"];
-        document.getElementById("section6-domestic").innerHTML = movie_List[5].domestic_gross;
-        document.getElementById("section6-foreign").innerHTML = movie_List[5].foreign_gross;
-
-        document.getElementById("section7-title").innerHTML = movie_List[6]["title"];
-        document.getElementById("section7-worldwide").innerHTML = movie_List[6]["worldwide_gross"];
-        document.getElementById("section7-domestic").innerHTML = movie_List[6].domestic_gross;
-        document.getElementById("section7-foreign").innerHTML = movie_List[6].foreign_gross;
-
-        document.getElementById("section8-title").innerHTML = movie_List[7]["title"];
-        document.getElementById("section8-worldwide").innerHTML = movie_List[7]["worldwide_gross"];
-        document.getElementById("section8-domestic").innerHTML = movie_List[7].domestic_gross;
-        document.getElementById("section8-foreign").innerHTML = movie_List[7].foreign_gross;
-
-        document.getElementById("section9-title").innerHTML = movie_List[8]["title"];
-        document.getElementById("section9-worldwide").innerHTML = movie_List[8]["worldwide_gross"];
-        document.getElementById("section9-domestic").innerHTML = movie_List[8].domestic_gross;
-        document.getElementById("section9-foreign").innerHTML = movie_List[8].foreign_gross;
-
-        document.getElementById("section10-title").innerHTML = movie_List[9]["title"];
-        document.getElementById("section10-worldwide").innerHTML = movie_List[9]["worldwide_gross"];
-        document.getElementById("section10-domestic").innerHTML = movie_List[9].domestic_gross;
-        document.getElementById("section10-foreign").innerHTML = movie_List[9].foreign_gross;
-
+            const res = await fetch("/api/movies");
+            const data = await res.json();
+            movie_List = data;
+            console.log(movie_List);   //Verify that movie_List contains all data
     }
 
     document.addEventListener("DOMContentLoaded", getData);
 
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
+    console.log("Query after: ", query);
 
     const searchTermSpan = document.getElementById("searchTerm");
     
     if (query) {
         searchTermSpan.textContent = query;
 
-        const matches = movie_List.filter(movie => 
-            movie.title.toLowerCase().includes(query.toLowerCase())
-        );
-
+        for (let i = 0; i < movie_List.length; i++) {
+            if (movie_List[title].toLowerCase() === query.toLowerCase()) {
+                let matches = query;
+            }
+        }
+   
     if (matches.length > 0) {
         //A table gets displayed
+        let table = getElementById("movie-data");
+        table.innerHTML = "";
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+        table.append(thead, tbody);
+
+        let tableRowHeader = document.createElement("tr");
+        let title = document.createElement("th");
+        let distributor = document.createElement("th");
+        title.textContent = "TITLE\n" + matches["title"];
+        distributor.textContent = "DISTRIBUTOR\n" + matches["studio"];
+        tableRowHeader.append(title, distributor);
+        thead.append(tableRowHeader);
+
+        let tableRowDomestic = document.createElement("tr");
+        let tableRow_UK = document.createElement("tr");
+        let tableRow_France = document.createElement("tr");
+        let tableRow_Germany = document.createElement("tr");
+        let tableRow_Spain = document.createElement("tr");
+        let tableRow_Italy = document.createElement("tr");
+        let tableRow_Netherlands = document.createElement("tr");
+        let tableRow_Switzerland = document.createElement("tr");
+        let tableRow_Belgium = document.createElement("tr");
+        let tableRow_Australia = document.createElement("tr");
+        let tableRow_Sweden = document.createElement("tr");
+
+        let tableDataDomestic = document.createElement("td");
+        let tableData_UK = document.createElement("td");
+        let tableData_France = document.createElement("td");
+        let tableData_Germany = document.createElement("td");
+        let tableData_Spain = document.createElement("td");
+        let tableData_Italy = document.createElement("td");
+        let tableData_Netherlands = document.createElement("td");
+        let tableData_Switzerland = document.createElement("td");
+        let tableData_Belgium = document.createElement("td");
+        let tableData_Australia = document.createElement("td");
+        let tableData_Sweden = document.createElement("td");
+
+        tableDataDomestic.colSpan = 2;
+        tableData_UK.colSpan = 2;
+        tableData_France.colSpan = 2;
+        tableData_Germany.colSpan = 2;
+        tableData_Spain.colSpan = 2;
+        tableData_Italy.colSpan = 2;
+        tableData_Netherlands.colSpan = 2;
+        tableData_Switzerland.colSpan = 2;
+        tableData_Belgium.colSpan = 2;
+        tableData_Australia.colSpan = 2;
+        tableData_Sweden.colSpan = 2;
+
+
+        tableDataDomestic.innerHTML = "Domestic      \t\t\t\t\t\t$" + matches["domestic_gross"];
+        tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + matches["uk"];
+        tableData_France.textContent = "France        \t\t\t\t\t\t$" + matches["france"];
+        tableData_Germany.textContent = "Germany       \t\t\t\t\t\t$" + matches["germany"];
+        tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + matches["germany"];
+        tableData_Italy.textContent = "Italy         \t\t\t\t\t\t$" + matches["italy"];
+        tableData_Netherlands.textContent = "Netherlands   \t\t\t\t\t\t$" + matches["netherlands"];
+        tableData_Switzerland.textContent = "Switzerland   \t\t\t\t\t\t$" + matches["switzerland"];
+        tableData_Belgium.textContent = "Belgium       \t\t\t\t\t\t$" + matches["belgium"];
+        tableData_Australia.textContent = "Australia     \t\t\t\t\t\t$" + matches["australia"];
+        tableData_Sweden.textContent = "Sweden        \t\t\t\t\t\t$" + matches["sweden"];
+
+
+        tableRowDomestic.append(tableDataDomestic);
+        tableRow_UK.append(tableData_UK);
+        tableRow_France.append(tableData_France);
+        tableRow_Germany.append(tableData_Germany);
+        tableRow_Spain.append(tableData_Spain);
+        tableRow_Italy.append(tableData_Italy);
+        tableRow_Netherlands.append(tableData_Netherlands);
+        tableRow_Switzerland.append(tableData_Switzerland);
+        tableRow_Belgium.append(tableData_Belgium);
+        tableRow_Australia.append(tableData_Australia);
+        tableRow_Sweden.append(tableData_Sweden);
+
+        tbody.append(tableRowDomestic, tableRow_UK, tableRow_France, tableRow_Germany, tableRow_Spain, tableRow_Italy, tableRow_Netherlands, tableRow_Switzerland,
+            tableRow_Belgium, tableRow_Australia, tableRow_Sweden);
+
     } else {
         //"No results found"
+        document.getElementById("no-data").innerHTML = "No results found.";
     }
 
     }

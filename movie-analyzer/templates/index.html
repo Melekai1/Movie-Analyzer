@@ -13,7 +13,6 @@
             <input type="text" id="customSearchInput" placeholder="Search" required>
             <button id="submit">🔍</button>
             </form>
-            
         </header>
         
         <br><br>
@@ -110,8 +109,9 @@
         e.preventDefault();
 
         const query = document.getElementById("customSearchInput").value.trim();
+        console.log("Query before: ", query);
         if (query) {
-            window.location.href = `results.html?q={encodeURIComponent(query)}`
+            window.location.href = `/results?q=${encodeURIComponent(query)}`;
         }
     });
 

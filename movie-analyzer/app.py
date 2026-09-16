@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify  # type: ignore[import]
+from flask import Flask, render_template, jsonify, request  # type: ignore[import]
 import csv
 
 app = Flask(__name__) 
@@ -33,7 +33,8 @@ def distributor():
 
 @app.route("/results")
 def results():
-    return render_template("results.html")
+    query = request.args.get('q', '')
+    return render_template("results.html", query=query)
 
 
 @app.route("/api/movies") 
