@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Movie Analyzer</title>
-        <link rel="stylesheef" href="/static/results.css">
+        <link rel="stylesheet" href="/static/results.css">
     </head>
 
     <body>
@@ -30,7 +30,16 @@
 
     <script>
 
-    
+    document.getElementById("searchForm").addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const query = document.getElementById("customSearchInput").value.trim();
+        console.log("Query before: ", query);
+        if (query) {
+            window.location.href = `/results?q=${encodeURIComponent(query)}`;
+        }
+    });
+
 
     document.addEventListener("DOMContentLoaded", displayData);
 
@@ -121,7 +130,7 @@
             tableData_UK.textContent = "United Kingdom\t\t\t\t\t$" + match["uk"];
             tableData_France.textContent = "France        \t\t\t\t\t\t$" + match["france"];
             tableData_Germany.textContent = "Germany       \t\t\t\t\t\t$" + match["germany"];
-            tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + match["germany"];
+            tableData_Spain.textContent = "Spain         \t\t\t\t\t\t$" + match["spain"];
             tableData_Italy.textContent = "Italy         \t\t\t\t\t\t$" + match["italy"];
             tableData_Netherlands.textContent = "Netherlands   \t\t\t\t\t\t$" + match["netherlands"];
             tableData_Switzerland.textContent = "Switzerland   \t\t\t\t\t\t$" + match["switzerland"];
