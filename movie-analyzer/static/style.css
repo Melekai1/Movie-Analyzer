@@ -79,3 +79,8 @@ h1 {
     width: 120px;
     background-color:blueviolet;
 }
+
+form #customSearchInput {
+    border: 1px solid black;
+    border-radius: 12px;
+}
