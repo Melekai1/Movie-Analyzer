@@ -12,6 +12,13 @@ distributed by a specific studio.
 - Python/Flask
 
 
+## How to Run ## 
+1. Clone this repository, and open it in Visual Studio Code
+2. Create a Python virtual environment
+3. Make sure Flask is installed, along with other related Python libraries (pip install library-name)
+4. Open the terminal and go to the "movie-analyzer" folder (cd movie-analyzer)
+5. Run the program (python app.py)
+
 
 ## Main Menu ##
 <img width="2152" height="1396" alt="Screenshot 2026-11-10 162205" src="https://github.com/user-attachments/assets/be7f33ac-d0fb-421b-a676-66fd90aa009f" />
